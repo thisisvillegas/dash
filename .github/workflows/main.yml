@@ -19,7 +19,9 @@ jobs:
           script: |
             nvm use 16.20
             cd dash
+            git stash
             git pull
+            npm install
             ng build
             sudo cp -r dist/angular-hello-world/* /usr/share/nginx/html
             echo "moved file"
