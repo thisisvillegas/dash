@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <h1>Hello World from villegas</h1>
     Love ya boo :D 
+    Its like Satisfactory but like much harder
   `
 })
 export class AppComponent {
