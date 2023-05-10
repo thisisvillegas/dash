@@ -1,0 +1,28 @@
+name: Build and deploy angular app 
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into EC2 Instance
+        uses: appleboy/ssh@master
+        with:
+          host: 3.83.68.163
+          username: ec2-user
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          port: 22
+          script: |
+            nvn use 16.20
+            cd dash
+            git pull
+            ng build
+            sudo cp -r dist/angular-hello-world/* /usr/share/nginx/html
+            echo "moved file"
+            sudo systemctl restart nginx
+            echo "restarted nginx"
+            
