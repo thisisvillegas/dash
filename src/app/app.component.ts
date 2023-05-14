@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <h1>Hello World from villegas</h1>
-    Love ya boo :D 
-    Its like Satisfactory but like much harder
-  `
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [RouterOutlet]
 })
 export class AppComponent {
 
